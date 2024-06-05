@@ -4,3 +4,10 @@ export interface Todo {
   content?: string;
   isDone: boolean;
 }
+
+export type FormData = {
+  title: string;
+  content?: string;
+};
+
+export type ValidField = "title" | "content";

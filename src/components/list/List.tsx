@@ -1,29 +1,25 @@
 import { Todo } from "../../types";
 import Card from "../card";
-
-const sampleTodo: Todo[] = [
-  {
-    id: "1",
-    title: "sample",
-    content: " todo sample",
-    isDone: false,
-  },
-];
+import EmptyList from "../emptyList/EmptyList";
 
 interface ListProps {
   title: string;
-  // todos: Todo[]
+  todos: Todo[];
 }
 
-function List({ title }: ListProps) {
+function List({ todos, title }: ListProps) {
   return (
-    <section className="w-screen p-3">
-      <h1 className="text-2xl font-bold text-blue-600">{title}</h1>
-      <ul className="h-fit w-fit overflow-scroll">
-        {sampleTodo.map((todo) => (
-          <Card key={todo.id} todo={todo} />
-        ))}
-      </ul>
+    <section className="w-full p-3">
+      <h1 className="mb-3 text-2xl font-bold text-blue-600">{title}</h1>
+      <div className="w-full overflow-x-scroll">
+        <ul className="flex h-60 w-fit items-center gap-3">
+          {todos.length ? (
+            todos.map((todo) => <Card key={todo.id} todo={todo} />)
+          ) : (
+            <EmptyList />
+          )}
+        </ul>
+      </div>
     </section>
   );
 }
