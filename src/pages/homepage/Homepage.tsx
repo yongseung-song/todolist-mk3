@@ -8,7 +8,7 @@ function Homepage() {
   return (
     <Page>
       <Form />
-      <List todos={activeTodos} title="in progress..." />
+      <List todos={activeTodos} title="In progress..." />
       <List todos={completedTodos} title="Done!" />
     </Page>
   );
